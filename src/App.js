@@ -1,25 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Nav from './components/navigation/navigation'
+import Gallery from './components/gallery/gallery';
+import Posts from './components/posts/posts';
+import Todos from './components/todos/todos';
+import Profile from './components/profile/profile';
+import Login from './components/profile/login';
+
+import profileOrLogin from './decorators/hocProfile';
+import galleryWithRequest from './decorators/hocGallery';
+import postsWithRequest from './decorators/hocPosts';
+import todosWithRequest from './decorators/hocTodos';
+import hocLogin from './decorators/hocLogin';
 import './App.css';
 
 function App() {
+
+  localStorage.setItem('isLogin', 1);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Nav />
+      <Switch>
+        <Route path="/" exact component={galleryWithRequest(Gallery)} />
+        <Route path="/posts" component={postsWithRequest(Posts)} />
+        <Route path="/profile" component={profileOrLogin(Profile)} />
+        <Route path="/todos" component={todosWithRequest(Todos)} /> 
+        <Route path="/login" component={hocLogin(Login)} /> 
+      </Switch>
+    </BrowserRouter>
+
   );
 }
 

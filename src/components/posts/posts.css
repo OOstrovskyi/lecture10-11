@@ -1,0 +1,14 @@
+div.post {
+  padding: 10px;
+  border: 1px solid gray;
+  margin: 10px;
+}
+
+p.author {
+  font-size: 14px;
+  font-style: italic;
+}
+
+p.body {
+  font-size: 16px;
+}

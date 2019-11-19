@@ -1,0 +1,39 @@
+a, body, div, figcaption, figure, img{
+  margin:0;
+  padding:0;
+  border:0;
+  font:inherit;
+  vertical-align:baseline;
+}
+  
+figcaption,figure{
+  display:block;
+}
+  
+.photo, .photo img{
+  box-sizing:border-box;
+}
+
+.photo{
+  float:left;
+  width:20%;
+  padding:10px;
+}
+
+.photo img{
+  display:block;
+  max-width:100%;
+  height:auto;
+  border:10px solid #eee;
+}
+
+.photo figcaption{
+  color:#999;
+  text-align:center;
+  margin-top:20px;
+  height: 50px;
+}
+
+.gallery{
+  margin-bottom:50px;
+}
