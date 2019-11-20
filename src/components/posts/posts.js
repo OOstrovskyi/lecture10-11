@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import "./posts.css"
 
 export default function Posts({ posts }) {
@@ -13,4 +14,16 @@ export default function Posts({ posts }) {
       )}
     </div>
   );
+}
+
+Posts.propTypes = {
+  posts: PropTypes.arrayOf(
+    PropTypes.shape({
+      userId: PropTypes.number.isRequired,
+      id: PropTypes.number.isRequired,
+      body: PropTypes.body,
+      title: PropTypes.string.isRequired,
+      
+    })
+  ).isRequired
 }
